@@ -16,4 +16,12 @@ import os
 import httpx
 
 
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+URLs=['https://www.shoecity.co.za/',
+      'https://www.shoecity.co.za/collections/mens-footwear-view-all',
+      'https://www.shoecity.co.za/collections/womens-footwear-view-all'
+      ]
+
 st.write("Hello, World")
