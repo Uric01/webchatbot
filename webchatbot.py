@@ -15,6 +15,8 @@ import getpass
 import os
 import httpx
 
+from langchain.memory import ConversationBufferMemory
+
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
@@ -61,6 +63,9 @@ from langchain_mistralai import ChatMistralAI
 llm = ChatMistralAI(model="mistral-large-latest", temperature=0) #The maximum token limit for the mistral-large-latest model is 131k tokens
 
 chain = RetrievalQAWithSourcesChain.from_llm(llm=llm, retriever=vector_store.as_retriever())
+
+memory = ConversationBufferMemory()
+user_input = "what is my name?"
 
 result = chain({"question": user_input})
 
