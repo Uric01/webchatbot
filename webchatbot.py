@@ -24,4 +24,10 @@ URLs=['https://www.shoecity.co.za/',
       'https://www.shoecity.co.za/collections/womens-footwear-view-all'
       ]
 
+oader = UnstructuredURLLoader(urls=URLs)
+data = loader.load()
+
+chunks = CharacterTextSplitter(separator='\n', chunk_size=1000, chunk_overlap=200).split_documents(data)
+
+
 st.write("Hello, World")
