@@ -24,7 +24,7 @@ URLs=['https://www.shoecity.co.za/',
       'https://www.shoecity.co.za/collections/womens-footwear-view-all'
       ]
 
-@st.cache_data(spinner=False)
+@st.cache_data()
 def load_data(url):
       loader = UrlLoader(url)
       return loader
