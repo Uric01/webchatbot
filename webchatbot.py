@@ -24,9 +24,13 @@ URLs=['https://www.shoecity.co.za/',
       'https://www.shoecity.co.za/collections/womens-footwear-view-all'
       ]
 
-@st.cache_data(max_entries=5, ttl=3600)
+@st.cache_data(spinner=False)
+def load_data(url):
+      loader = UrlLoader(url)
+      return loader
 
-loader = UnstructuredURLLoader(urls=URLs)
+
+loader = load_data(urls=URLs)
 data = loader.load()
 
 chunks = CharacterTextSplitter(separator='\n', chunk_size=1000, chunk_overlap=200).split_documents(data)
