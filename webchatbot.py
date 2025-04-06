@@ -30,7 +30,7 @@ def load_data(url):
       return loader
 
 
-loader = load_data(urls=URLs)
+loader = load_data(URLs)
 data = loader.load()
 
 chunks = CharacterTextSplitter(separator='\n', chunk_size=1000, chunk_overlap=200).split_documents(data)
