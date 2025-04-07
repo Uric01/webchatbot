@@ -38,4 +38,7 @@ chunks = CharacterTextSplitter(separator='\n', chunk_size=1000, chunk_overlap=20
 #Embeddings Model
 from langchain_huggingface import HuggingFaceEmbeddings
 
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+  embeddings = HuggingFaceEmbeddings(
+                        model_name="sentence-transformers/all-mpnet-base-v2",
+                        model_kwargs={'device': 'cpu'}  # Force CPU if no GPU
+                    )
