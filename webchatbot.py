@@ -35,5 +35,11 @@ data = loader.load()
 
 chunks = CharacterTextSplitter(separator='\n', chunk_size=1000, chunk_overlap=200).split_documents(data)
 
+#Embeddings Model
+from langchain_huggingface import HuggingFaceEmbeddings
 
-st.write("Hello, World")
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+if embeddings is None:
+  raise ValueError("Embeddings model not found. Make sure it is set in your .env file.")
+else:
+  print("Loaded Embeddings model found!")
