@@ -26,7 +26,7 @@ URLs=['https://www.shoecity.co.za/',
 
 @st.cache_data()
 def load_data(url):
-      loader = UrlLoader(url)
+      loader = UnstructuredURLLoader(urls=url)
       return loader
 
 
